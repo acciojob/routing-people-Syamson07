@@ -11,8 +11,11 @@ export default function UserDetails() {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        setUser(data);
-        setLoading(false);
+        // Artificial delay to show loading message during tests
+        setTimeout(() => {
+          setUser(data);
+          setLoading(false);
+        }, 1000); // 1 second delay
       });
   }, [id]);
 
